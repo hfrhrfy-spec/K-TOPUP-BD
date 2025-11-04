@@ -58,21 +58,59 @@ header{background:linear-gradient(90deg,#1e1e1e 0%,#3a3a3a 35%,#d4af37 100%);col
   transition:all .3s ease;
 }
 
-.copyBox{background:#fff;border:2px solid #ccc;border-radius:10px;padding:10px 15px;text-align:center;margin-bottom:10px;width:100%;box-shadow:0 4px 10px rgba(0,0,0,0.05);}
-.copyBox button{margin-left:8px;padding:4px 8px;border:none;border-radius:6px;background:#25d366;color:#fff;font-weight:600;cursor:pointer;transition:.3s;}
-.copyBox button:hover{background:#128c7e;}
-.sendMoneyBox{background:#fefefe;border:2px solid #ddd;border-radius:10px;padding:10px 15px;text-align:center;width:100%;box-shadow:0 4px 10px rgba(0,0,0,0.05);font-weight:600;color:#222;margin-bottom:10px;}
-.sendMoneyBox span{color:#ff007f;}
+/* ✅ Premium Order Form Frame */
+#orderFormPage{
+  display:none;
+  text-align:center;
+  padding:20px;
+}
+.orderFormFrame{
+  background: linear-gradient(135deg,#ff416c,#ff4b2b);
+  padding:25px 20px;
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(255,75,43,0.4);
+  color:#fff;
+  max-width:400px;
+  margin:0 auto;
+  animation:fadeIn .5s ease;
+}
+.orderFormFrame h2{
+  margin-bottom:15px;
+  font-size:1.4em;
+  font-weight:600;
+}
+.orderFormFrame p{
+  margin-bottom:15px;
+  font-size:0.95em;
+  font-weight:500;
+}
+.orderFormFrame input{
+  width:90%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:10px;
+  border:none;
+  outline:none;
+}
+.orderFormFrame button{
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  color:#fff;
+  padding:12px 20px;
+  border:none;
+  border-radius:12px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+.orderFormFrame button:hover{transform:scale(1.05);}
+.orderFormFrame #orderMsg{
+  margin-top:12px;
+  font-weight:600;
+}
 
-@keyframes fadeIn{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
-
-@media (max-width:880px){.container{grid-template-columns:repeat(2,1fr)}.product img{max-height:180px}.productPageWrapper{flex-direction:column;align-items:center}.orderColumn{width:92%;position:static;top:auto}.imagesColumn{flex-direction:row;gap:12px}.imagesColumn img{max-height:200px;}}
-@media (max-width:480px){.container{grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}.product img{max-height:160px}.imagesColumn img{max-height:180px}.bigBtn{padding:12px 18px;font-size:1em}}
-
-#orderFormPage{display:none;text-align:center;padding:20px;}
-#orderFormPage input{width:80%;padding:10px;margin:10px 0;border-radius:8px;border:1px solid #aaa;}
-#orderFormPage button{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;padding:10px 20px;border:none;border-radius:8px;font-weight:600;cursor:pointer;}
-#orderFormPage button:hover{transform:scale(1.05);}
+/* Media Queries */
+@media (max-width:880px){.container{grid-template-columns:repeat(2,1fr)}.product img{max-height:180px}.productPageWrapper{flex-direction:column;align-items:center}.orderColumn{width:92%;position:static;top:auto}.imagesColumn{flex-direction:row;gap:12px}.imagesColumn img{max-height:200px}.orderFormFrame{width:95%;padding:20px;}}
+@media (max-width:480px){.container{grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}.product img{max-height:160px}.imagesColumn img{max-height:180px}.bigBtn{padding:12px 18px;font-size:1em}.orderFormFrame input{width:95%;}}
 </style>
 </head>
 <body>
@@ -80,14 +118,16 @@ header{background:linear-gradient(90deg,#1e1e1e 0%,#3a3a3a 35%,#d4af37 100%);col
 <div class="shop-name-wrapper" id="shopNameWrapper"><div class="shop-name" id="shopNameDiv">Network Problem</div></div>
 <div id="home" class="container"></div>
 
-<!-- ✅ Order Form Page -->
+<!-- ✅ Premium Order Form Page -->
 <div id="orderFormPage">
-  <h2>অর্ডার নিশ্চিত করুন</h2>
-  <p>নিচে আপনার বিকাশ/নগদ নাম্বারের শেষ ৪ ডিজিট এবং UID লিখুন</p>
-  <input type="text" id="lastFourDigits" maxlength="4" placeholder="Last 4 Digits" />
-  <input type="text" id="userUID" placeholder="Enter UID" />
-  <button onclick="confirmOrder()">Confirm</button>
-  <p id="orderMsg" style="color:green;font-weight:600;margin-top:10px;"></p>
+  <div class="orderFormFrame">
+    <h2>অর্ডার নিশ্চিত করুন</h2>
+    <p>নিচে আপনার বিকাশ/নগদ নাম্বারের শেষ ৪ ডিজিট এবং UID লিখুন</p>
+    <input type="text" id="lastFourDigits" maxlength="4" placeholder="Last 4 Digits" />
+    <input type="text" id="userUID" placeholder="Enter UID" />
+    <button onclick="confirmOrder()">Confirm</button>
+    <p id="orderMsg"></p>
+  </div>
 </div>
 
 <div id="productPage">
@@ -98,8 +138,9 @@ header{background:linear-gradient(90deg,#1e1e1e 0%,#3a3a3a 35%,#d4af37 100%);col
     <div class="imagesColumn" id="detailImagesColumn"></div>
     <div class="orderColumn" id="orderColumn">
       <div class="sendMoneyBox">💸 সেন্ড মানি 👇<span></span></div>
-      <div class="copyBox"><div>বিকাশ নাম্বার:- 01780526790 <button onclick="copyText(this,'01780526790')">কপি</button></div></div>
-      <div class="copyBox"><div>নগদ নাম্বার:- 01709353246 <button onclick="copyText(this,'01709353246')">কপি</button></div></div>
+      <!-- কপি বোতামগুলো সরানো হলো -->
+      <div>বিকাশ নাম্বার:- 01780526790</div>
+      <div>নগদ নাম্বার:- 01709353246</div>
       <h2 id="detailName">Product Name</h2>
       <div class="price" id="detailPrice">৳ 0</div>
       <a id="orderBtn" class="bigBtn" href="#">অর্ডার করুন</a>
@@ -132,15 +173,6 @@ let selectedProduct = null;
 
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function sanitizePhone(p){if(!p)return'';return p.replace(/[^\d+]/g,'').replace(/^\+?88/,'88');}
-
-function copyText(btn,text){
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(text).then(()=>{
-      btn.innerText="কপি হয়েছে ✅";
-      setTimeout(()=>{btn.innerText="কপি";},1500);
-    });
-  }
-}
 
 function renderProducts(products){
   homeContainer.innerHTML='';
