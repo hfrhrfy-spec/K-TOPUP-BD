@@ -108,6 +108,20 @@ header{background:linear-gradient(90deg,#1e1e1e 0%,#3a3a3a 35%,#d4af37 100%);col
   font-weight:600;
 }
 
+/* ✅ Back Button Style */
+.backBtn{
+  display:inline-block;
+  padding:8px 15px;
+  margin-bottom:15px;
+  background:#333;
+  color:#fff;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  transition:.3s;
+}
+.backBtn:hover{background:#555;}
+
 /* Media Queries */
 @media (max-width:880px){.container{grid-template-columns:repeat(2,1fr)}.product img{max-height:180px}.productPageWrapper{flex-direction:column;align-items:center}.orderColumn{width:92%;position:static;top:auto}.imagesColumn{flex-direction:row;gap:12px}.imagesColumn img{max-height:200px}.orderFormFrame{width:95%;padding:20px;}}
 @media (max-width:480px){.container{grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}.product img{max-height:160px}.imagesColumn img{max-height:180px}.bigBtn{padding:12px 18px;font-size:1em}.orderFormFrame input{width:95%;}}
@@ -116,11 +130,14 @@ header{background:linear-gradient(90deg,#1e1e1e 0%,#3a3a3a 35%,#d4af37 100%);col
 <body>
 <header id="mainHeader">WELCOME</header>
 <div class="shop-name-wrapper" id="shopNameWrapper"><div class="shop-name" id="shopNameDiv">Network Problem</div></div>
+
+<!-- ✅ Home Page -->
 <div id="home" class="container"></div>
 
 <!-- ✅ Premium Order Form Page -->
 <div id="orderFormPage">
   <div class="orderFormFrame">
+    <div class="backBtn" onclick="goBack('orderFormPage')">⬅ Back</div>
     <h2>অর্ডার নিশ্চিত করুন</h2>
     <p>নিচে আপনার বিকাশ/নগদ নাম্বারের শেষ ৪ ডিজিট এবং UID লিখুন</p>
     <input type="text" id="lastFourDigits" maxlength="4" placeholder="Last 4 Digits" />
@@ -130,7 +147,9 @@ header{background:linear-gradient(90deg,#1e1e1e 0%,#3a3a3a 35%,#d4af37 100%);col
   </div>
 </div>
 
+<!-- ✅ Product Detail Page -->
 <div id="productPage">
+  <div class="backBtn" onclick="goBack('productPage')">⬅ Back</div>
   <!-- ❤️ Premium Frame for Description -->
   <div class="product-desc-frame" id="productDescFrame"></div>
 
@@ -138,7 +157,6 @@ header{background:linear-gradient(90deg,#1e1e1e 0%,#3a3a3a 35%,#d4af37 100%);col
     <div class="imagesColumn" id="detailImagesColumn"></div>
     <div class="orderColumn" id="orderColumn">
       <div class="sendMoneyBox">💸 সেন্ড মানি 👇<span></span></div>
-      <!-- কপি বোতামগুলো সরানো হলো -->
       <div>বিকাশ নাম্বার:- 01780526790</div>
       <div>নগদ নাম্বার:- 01709353246</div>
       <h2 id="detailName">Product Name</h2>
@@ -245,7 +263,6 @@ function confirmOrder(){
     time:new Date().toLocaleString()
   };
 
-  // ✅ Firebase এ অর্ডার সেভ করা
   firebase.database().ref('orders').push(orderData).then(()=>{
     msgEl.style.color='green';
     msgEl.innerText='✅ অর্ডার সফলভাবে জমা হয়েছে!';
@@ -255,6 +272,20 @@ function confirmOrder(){
     msgEl.style.color='red';
     msgEl.innerText='❌ সমস্যা হয়েছে, আবার চেষ্টা করুন!';
   });
+}
+
+// ✅ Back Button Function
+function goBack(currentPage){
+  if(currentPage==='productPage'){
+    document.getElementById('productPage').style.display='none';
+    document.getElementById('home').style.display='grid';
+    document.getElementById('mainHeader').style.display='block';
+    document.getElementById('shopNameWrapper').style.display='flex';
+  } else if(currentPage==='orderFormPage'){
+    document.getElementById('orderFormPage').style.display='none';
+    document.getElementById('productPage').style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
 }
 
 dbRef.on('value', snap=>{
