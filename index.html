@@ -11,16 +11,16 @@ body{
   color:#222;
   background: url('https://i.postimg.cc/6qr1f2zH/public.jpg') no-repeat center center fixed;
   background-size: cover;
-  animation:none; /* আগের gradient animation বন্ধ */
+  animation:none;
 }
 
 /* 🌟 Header Frame */
 header{
-  background:linear-gradient(135deg,#7f00ff,#e100ff,#ff6a00);
-  color:#fff;
+  background: linear-gradient(135deg,#7f00ff,#e100ff,#ff6a00);
+  color:#000000;
   text-align:center;
   padding:14px 20px;
-  font-size:1.1em;
+  font-size:1.0em;
   font-weight:700;
   border-radius:80px;
   box-shadow:0 6px 25px rgba(127,0,255,0.4);
@@ -61,10 +61,10 @@ header::before{
   margin:25px 0;
 }
 .shop-name{
-  background:linear-gradient(135deg,#FF6F68,#ee0979);
-  color:#fff;
+  background:linear-gradient(135deg,#7f00ff,#e100ff,#ff6a00);
+  color:#000000;
   padding:22px 45px;
-  font-size:1.7em;
+  font-size:1.5em;
   font-weight:700;
   border-radius:20px;
   box-shadow:0 8px 25px rgba(238,9,121,0.4);
@@ -95,18 +95,53 @@ header::before{
   50%{box-shadow:0 0 35px rgba(255,106,0,0.6);}
 }
 
+/* 🌸 Product Frame (Color Changed to #FF60A8) */
 .container{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;padding:20px;margin-top:8px;}
-.product{background:linear-gradient(145deg,#ffffff,#f1f1f1);border-radius:18px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.1);transition:all .3s ease;cursor:pointer;border:2px solid rgba(0,0,0,0.05);position:relative;}
-.product:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 12px 26px rgba(0,0,0,0.18);background:linear-gradient(145deg,#fefefe,#fafafa);}
-.product::before{content:"";position:absolute;inset:0;border-radius:18px;background:radial-gradient(circle at 30% 30%,rgba(255,192,203,0.4),transparent 60%),radial-gradient(circle at 70% 70%,rgba(135,206,250,0.4),transparent 60%);opacity:0;transition:opacity .4s ease;}
+.product{
+  background:#987284;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+  transition:all .3s ease;
+  cursor:pointer;
+  border:2px solid rgba(0,0,0,0.05);
+  position:relative;
+}
+.product:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 12px 26px rgba(0,0,0,0.18);
+  background:linear-gradient(145deg,#ff84bd,#ff60a8);
+}
+.product::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  background:radial-gradient(circle at 30% 30%,rgba(255,192,203,0.4),transparent 60%),
+             radial-gradient(circle at 70% 70%,rgba(255,255,255,0.3),transparent 60%);
+  opacity:0;
+  transition:opacity .4s ease;
+}
 .product:hover::before{opacity:1;}
 .product img{width:100%;height:180px;object-fit:contain;transition:.3s;}
 .product:hover img{transform:scale(1.07);}
 .product-info{padding:12px 10px;text-align:center;background:rgba(255,255,255,0.85);}
 .product-info h3{font-size:1em;font-weight:600;margin-bottom:6px;color:#111;}
 .product-info p{color:#ff007f;font-weight:700;font-size:0.95em;}
+
+/* ✅ Product Details Page (Color changed to #00A5E3) */
 #productPage{display:none;padding:16px;min-height:70vh}
-.productPageWrapper{display:flex;gap:20px;align-items:flex-start;justify-content:center;flex-wrap:wrap;}
+.productPageWrapper{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+  justify-content:center;
+  flex-wrap:wrap;
+  background:#A5F1F6; /* <-- Color changed here */
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
 .imagesColumn{flex:1;display:flex;gap:16px;max-width:800px;}
 .imagesColumn .imgWrap{flex:1;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.08);opacity:0;transform:translateY(20px);animation:fadeSlide 0.5s forwards;}
 .imagesColumn .imgWrap:nth-child(1){animation-delay:0.1s;}
@@ -140,13 +175,14 @@ header::before{
   transition:all .3s ease;
 }
 
+/* Order Form Page */
 #orderFormPage{display:none;text-align:center;padding:20px;}
 .orderFormFrame{
-  background: linear-gradient(135deg,#ff416c,#ff4b2b);
+  background: #FFF4DF;
   padding:25px 20px;
   border-radius:20px;
   box-shadow:0 8px 25px rgba(255,75,43,0.4);
-  color:#fff;
+  color:#000000;
   max-width:400px;
   margin:0 auto;
   animation:fadeIn .5s ease;
@@ -201,14 +237,28 @@ header::before{
   box-shadow:0 8px 25px rgba(37,117,252,0.5);
 }
 
-@media (max-width:880px){.container{grid-template-columns:repeat(2,1fr)}.product img{max-height:180px}.productPageWrapper{flex-direction:column;align-items:center}.orderColumn{width:92%;position:static;top:auto}.imagesColumn{flex-direction:row;gap:12px}.imagesColumn img{max-height:200px}.orderFormFrame{width:95%;padding:20px;}}
-@media (max-width:480px){.container{grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}.product img{max-height:160px}.imagesColumn img{max-height:180px}.bigBtn{padding:12px 18px;font-size:1em}.orderFormFrame input{width:95%;}}
+@media (max-width:880px){
+  .container{grid-template-columns:repeat(2,1fr)}
+  .product img{max-height:180px}
+  .productPageWrapper{flex-direction:column;align-items:center}
+  .orderColumn{width:92%;position:static;top:auto}
+  .imagesColumn{flex-direction:row;gap:12px}
+  .imagesColumn img{max-height:200px}
+  .orderFormFrame{width:95%;padding:20px;}
+}
+@media (max-width:480px){
+  .container{grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}
+  .product img{max-height:160px}
+  .imagesColumn img{max-height:180px}
+  .bigBtn{padding:12px 18px;font-size:1em}
+  .orderFormFrame input{width:95%;}
+}
 </style>
 </head>
 <body>
-<header id="mainHeader">WELCOME</header>
+<header id="mainHeader">𝐖𝐞𝐥𝐜𝐨𝐦𝐞</header>
 <div class="shop-name-wrapper" id="shopNameWrapper">
-  <div class="shop-name" id="shopNameDiv">Network Problem</div>
+  <div class="shop-name" id="shopNameDiv">𝐍𝐞𝐭𝐰𝐨𝐫𝐤 𝐏𝐫𝐨𝐛𝐥𝐞𝐦</div>
 </div>
 
 <div id="home" class="container"></div>
@@ -217,7 +267,7 @@ header::before{
   <div class="orderFormFrame">
     <div class="backBtn" onclick="goBack('orderFormPage')">⬅ 𝐁𝐀𝐂𝐊</div>
     <h2>𝐂𝐎𝐍𝐅𝐈𝐑𝐌 𝐎𝐑𝐃𝐄𝐑</h2>
-    <p>নিচে আপনার বিকাশ/নগদ নাম্বারের শেষ ৪ ডিজিট এবং UID লিখুন..!!</p>
+    <p>যেই নাম্বার থেকে টাকা পাঠিয়েছেন ওই নাম্বারের শেষ ৪ ডিজিট এবং UID লিখুন..!!</p>
     <input type="text" id="lastFourDigits" maxlength="4" placeholder="𝐋𝐚𝐬𝐭 4 𝐃𝐢𝐠𝐢𝐭𝐬" />
     <input type="text" id="userUID" placeholder="𝐄𝐧𝐭𝐞𝐫 𝐔𝐈𝐃" />
     <button onclick="confirmOrder()">𝐂𝐎𝐍𝐅𝐈𝐑𝐌</button>
@@ -264,7 +314,6 @@ let homeContainer = document.getElementById('home');
 let selectedProduct = null;
 
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function sanitizePhone(p){if(!p)return'';return p.replace(/[^\d+]/g,'').replace(/^\+?88/,'88');}
 function renderProducts(products){
   homeContainer.innerHTML='';
   products.forEach((p,i)=>{
