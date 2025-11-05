@@ -6,6 +6,10 @@
 <title>𝐊ᴀ𝐰sᴀʀ</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
+
+/* =========================
+   🌐 BODY & BACKGROUND CSS
+========================= */
 body{
   min-height:100vh;
   color:#222;
@@ -14,13 +18,16 @@ body{
   animation:none;
 }
 
-/* 🌟 Header Frame */
+/* =========================
+   💫 HEADER CSS
+========================= */
 header{
-  background: linear-gradient(135deg,#7f00ff,#e100ff,#ff6a00);
-  color:#000000;
+  /* Header Text & Box */
+  background:#E1D4C1;
+  color:#FF1493;
   text-align:center;
   padding:14px 20px;
-  font-size:1.0em;
+  font-size:1.1em;
   font-weight:700;
   border-radius:80px;
   box-shadow:0 6px 25px rgba(127,0,255,0.4);
@@ -53,7 +60,9 @@ header::before{
   50%{box-shadow:0 0 45px rgba(255,106,0,0.6);}
 }
 
-/* 🌟 Shop Name Frame */
+/* =========================
+   🏪 SHOP NAME CSS
+========================= */
 .shop-name-wrapper{
   display:flex;
   justify-content:center;
@@ -61,15 +70,15 @@ header::before{
   margin:25px 0;
 }
 .shop-name{
-  background:linear-gradient(135deg,#7f00ff,#e100ff,#ff6a00);
-  color:#000000;
-  padding:22px 45px;
-  font-size:1.5em;
+  background:#E1D4C1;
+  color:#FF1493;
+  padding:20px 45px;
+  font-size:1.3em;
   font-weight:700;
-  border-radius:20px;
+  border-radius:100px;
   box-shadow:0 8px 25px rgba(238,9,121,0.4);
   text-transform:uppercase;
-  letter-spacing:1px;
+  letter-spacing:0px;
   position:relative;
   overflow:hidden;
   animation:shine 4s linear infinite;
@@ -95,8 +104,16 @@ header::before{
   50%{box-shadow:0 0 35px rgba(255,106,0,0.6);}
 }
 
-/* 🌸 Product Frame */
-.container{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;padding:20px;margin-top:8px;}
+/* =========================
+   🛍️ HOME PAGE PRODUCTS CSS
+========================= */
+.container{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:16px;
+  padding:20px;
+  margin-top:8px;
+}
 .product{
   background:#987284;
   border-radius:18px;
@@ -129,7 +146,9 @@ header::before{
 .product-info h3{font-size:1em;font-weight:600;margin-bottom:6px;color:#111;}
 .product-info p{color:#ff007f;font-weight:700;font-size:0.95em;}
 
-/* ✅ Product Details Page */
+/* =========================
+   📝 PRODUCT DETAILS PAGE CSS
+========================= */
 #productPage{display:none;padding:16px;min-height:70vh}
 .productPageWrapper{
   display:flex;
@@ -143,24 +162,26 @@ header::before{
   box-shadow:0 8px 25px rgba(0,0,0,0.15);
 }
 .imagesColumn{flex:1;display:flex;gap:16px;max-width:800px;}
-.imagesColumn .imgWrap{flex:1;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.08);opacity:0;transform:translateY(20px);animation:fadeSlide 0.5s forwards;}
+.imagesColumn .imgWrap{flex:1;background:#fff;border-radius:120px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.08);opacity:0;transform:translateY(20px);animation:fadeSlide 0.5s forwards;}
 .imagesColumn .imgWrap:nth-child(1){animation-delay:0.1s;}
 @keyframes fadeSlide{to{opacity:1;transform:translateY(0);}}
 .imagesColumn img{width:100%;height:auto;max-height:300px;object-fit:contain;display:block;cursor:pointer;border-radius:12px;}
 .fullscreen-view{position:fixed;inset:0;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:9999;animation:fadeIn .3s ease;}
 .fullscreen-view img{max-width:80%;max-height:80%;border-radius:12px;box-shadow:0 0 20px rgba(255,255,255,0.3);}
 .fullscreen-view.closeable{cursor:pointer;}
-.orderColumn{width:320px;background:linear-gradient(180deg,#ffffff,#fbfbfb);border-radius:12px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:12px;align-items:center;position:sticky;top:84px;height:fit-content}
+.orderColumn{width:120px;background:linear-gradient(180deg,#ffffff,#fbfbfb);border-radius:12px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:12px;align-items:center;position:sticky;top:84px;height:fit-content}
 .orderColumn h2{font-size:1.25em;text-align:center}
 .orderColumn .price{font-weight:700;font-size:1.05em;color:#111}
 .orderColumn .desc{font-size:0.95em;color:#444;text-align:center}
 
-/* 🌟 Payment Frames */
+/* =========================
+   💳 PAYMENT BOXES CSS
+========================= */
 .paymentBox{
   width:100%;
-  background:linear-gradient(135deg,#7f00ff,#e100ff);
-  color:#fff;
-  border-radius:15px;
+  background:000000;
+  color:#000000;
+  border-radius:30px;
   padding:10px;
   text-align:center;
   font-weight:600;
@@ -168,8 +189,8 @@ header::before{
   position:relative;
 }
 .copyBtn{
-  background:#fff;
-  color:#7f00ff;
+  background:#A5F1F6;
+  color:#000000;
   font-size:0.8em;
   padding:4px 8px;
   border-radius:8px;
@@ -180,16 +201,21 @@ header::before{
 }
 .copyBtn:hover{background:#ffe5ff;color:#e100ff;}
 
-/* 🌿 Order Button */
-.bigBtn{display:inline-block;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;padding:14px 22px;border-radius:30px;text-decoration:none;font-weight:700;font-size:1.05em;box-shadow:0 8px 18px rgba(37,211,102,.25);border:none;transition:.3s;}
+/* =========================
+   🟢 ORDER BUTTON CSS
+========================= */
+.bigBtn{display:inline-block;background:#740E4C;color:#FFF4DF;padding:14px 22px;border-radius:30px;text-decoration:none;font-weight:700;font-size:1.05em;box-shadow:0 8px 18px rgba(37,211,102,.25);border:none;transition:.3s;}
 .bigBtn:hover{transform:scale(1.05);}
 .bigBtn:active{transform:translateY(1px)}
 .phone{display:none;}
 .share-note{font-size:0.82em;color:#666;text-align:center;padding-top:6px}
 
+/* =========================
+   📝 PRODUCT DESCRIPTION FRAME CSS
+========================= */
 .product-desc-frame{
-  background: linear-gradient(135deg,#7f00ff,#e100ff);
-  color:#fff;
+  background:#FFFAF0;
+  color:#000000;
   border:none;
   box-shadow:0 5px 20px rgba(127,0,255,0.4);
   padding:20px 25px;
@@ -202,7 +228,9 @@ header::before{
   transition:all .3s ease;
 }
 
-/* Order Form Page */
+/* =========================
+   📝 ORDER FORM PAGE CSS
+========================= */
 #orderFormPage{display:none;text-align:center;padding:20px;}
 .orderFormFrame{
   background: #FFF4DF;
@@ -218,7 +246,7 @@ header::before{
 .orderFormFrame p{margin-bottom:15px;font-size:0.95em;font-weight:500;}
 .orderFormFrame input{width:90%;padding:10px;margin:10px 0;border-radius:10px;border:none;outline:none;}
 .orderFormFrame button{
-  background:linear-gradient(135deg,#25D366,#128C7E);
+  background:#740E4C;
   color:#fff;
   padding:12px 20px;
   border:none;
@@ -228,16 +256,18 @@ header::before{
   transition:.3s;
 }
 .orderFormFrame button:hover{transform:scale(1.05);}
-.orderFormFrame #orderMsg{margin-top:12px;font-weight:600;}
+.orderFormFrame #orderMsg{margin-top:12px;font-weight:600}
 
-/* 🌈 Premium Back Button */
+/* =========================
+   🔙 BACK BUTTON CSS
+========================= */
 .backBtn{
   display:inline-block;
   padding:10px 50px;
   margin-bottom:15px;
-  background:linear-gradient(135deg,#6a11cb,#2575fc);
+  background:#DC143C;
   color:#fff;
-  border-radius:20px;
+  border-radius:60px;
   cursor:pointer;
   font-weight:600;
   letter-spacing:0.5px;
@@ -264,6 +294,9 @@ header::before{
   box-shadow:0 8px 25px rgba(37,117,252,0.5);
 }
 
+/* =========================
+   📱 RESPONSIVE CSS
+========================= */
 @media (max-width:880px){
   .container{grid-template-columns:repeat(2,1fr)}
   .product img{max-height:180px}
@@ -314,12 +347,12 @@ header::before{
       <div class="paymentBox">
         বিকাশ নাম্বারঃ <br> 
         <strong id="bkashNumber">01780526790</strong><br>
-        <button class="copyBtn" onclick="copyText('bkashNumber')">📋 Copy</button>
+        <button class="copyBtn" onclick="copyText('bkashNumber')">📋 𝐂𝐎𝐏𝐘</button>
       </div>
       <div class="paymentBox">
         নগদ নাম্বারঃ <br> 
         <strong id="nagadNumber">01709353246</strong><br>
-        <button class="copyBtn" onclick="copyText('nagadNumber')">📋 Copy</button>
+        <button class="copyBtn" onclick="copyText('nagadNumber')">📋 𝐂𝐎𝐏𝐘</button>
       </div>
 
       <h2 id="detailName">Product Name</h2>
