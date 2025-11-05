@@ -95,7 +95,7 @@ header::before{
   50%{box-shadow:0 0 35px rgba(255,106,0,0.6);}
 }
 
-/* 🌸 Product Frame (Color Changed to #FF60A8) */
+/* 🌸 Product Frame */
 .container{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;padding:20px;margin-top:8px;}
 .product{
   background:#987284;
@@ -129,7 +129,7 @@ header::before{
 .product-info h3{font-size:1em;font-weight:600;margin-bottom:6px;color:#111;}
 .product-info p{color:#ff007f;font-weight:700;font-size:0.95em;}
 
-/* ✅ Product Details Page (Color changed to #00A5E3) */
+/* ✅ Product Details Page */
 #productPage{display:none;padding:16px;min-height:70vh}
 .productPageWrapper{
   display:flex;
@@ -137,7 +137,7 @@ header::before{
   align-items:flex-start;
   justify-content:center;
   flex-wrap:wrap;
-  background:#A5F1F6; /* <-- Color changed here */
+  background:#A5F1F6;
   border-radius:18px;
   padding:20px;
   box-shadow:0 8px 25px rgba(0,0,0,0.15);
@@ -154,6 +154,33 @@ header::before{
 .orderColumn h2{font-size:1.25em;text-align:center}
 .orderColumn .price{font-weight:700;font-size:1.05em;color:#111}
 .orderColumn .desc{font-size:0.95em;color:#444;text-align:center}
+
+/* 🌟 Payment Frames */
+.paymentBox{
+  width:100%;
+  background:linear-gradient(135deg,#7f00ff,#e100ff);
+  color:#fff;
+  border-radius:15px;
+  padding:10px;
+  text-align:center;
+  font-weight:600;
+  box-shadow:0 5px 15px rgba(127,0,255,0.3);
+  position:relative;
+}
+.copyBtn{
+  background:#fff;
+  color:#7f00ff;
+  font-size:0.8em;
+  padding:4px 8px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  margin-top:6px;
+  transition:.3s;
+}
+.copyBtn:hover{background:#ffe5ff;color:#e100ff;}
+
+/* 🌿 Order Button */
 .bigBtn{display:inline-block;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;padding:14px 22px;border-radius:30px;text-decoration:none;font-weight:700;font-size:1.05em;box-shadow:0 8px 18px rgba(37,211,102,.25);border:none;transition:.3s;}
 .bigBtn:hover{transform:scale(1.05);}
 .bigBtn:active{transform:translateY(1px)}
@@ -203,7 +230,7 @@ header::before{
 .orderFormFrame button:hover{transform:scale(1.05);}
 .orderFormFrame #orderMsg{margin-top:12px;font-weight:600;}
 
-/* 🌈 Premium Back Button Design */
+/* 🌈 Premium Back Button */
 .backBtn{
   display:inline-block;
   padding:10px 50px;
@@ -281,9 +308,20 @@ header::before{
   <div class="productPageWrapper">
     <div class="imagesColumn" id="detailImagesColumn"></div>
     <div class="orderColumn" id="orderColumn">
-      <div class="sendMoneyBox">💸 সেন্ড মানি 👇<span></span></div>
-      <div>বিকাশ নাম্বার:- 01780526790</div>
-      <div>নগদ নাম্বার:- 01709353246</div>
+      <div class="sendMoneyBox">💸 সেন্ড মানি 👇</div>
+
+      <!-- 🔹 Copy-enabled Payment Frames -->
+      <div class="paymentBox">
+        বিকাশ নাম্বারঃ <br> 
+        <strong id="bkashNumber">01780526790</strong><br>
+        <button class="copyBtn" onclick="copyText('bkashNumber')">📋 Copy</button>
+      </div>
+      <div class="paymentBox">
+        নগদ নাম্বারঃ <br> 
+        <strong id="nagadNumber">01709353246</strong><br>
+        <button class="copyBtn" onclick="copyText('nagadNumber')">📋 Copy</button>
+      </div>
+
       <h2 id="detailName">Product Name</h2>
       <div class="price" id="detailPrice">৳ 0</div>
       <a id="orderBtn" class="bigBtn" href="#">𝐎𝐫𝐝𝐞𝐫 𝐍𝐨𝐰</a>
@@ -327,13 +365,13 @@ function renderProducts(products){
 function showProductPage(i, products){
   selectedProduct = products[i];
   document.getElementById('home').style.display='none';
-  document.getElementById('productPage').style.display='block';
+document.getElementById('productPage').style.display='block';
   document.getElementById('mainHeader').style.display='none';
   document.getElementById('shopNameWrapper').style.display='none';
   document.getElementById('detailName').innerText=selectedProduct.name||'Product';
   document.getElementById('detailPrice').innerText=selectedProduct.price||'৳ 0';
   document.getElementById('productDescFrame').innerText=selectedProduct.desc||'';
-  const imagesCol = document.getElementById('detailImagesColumn');
+const imagesCol = document.getElementById('detailImagesColumn');
   imagesCol.innerHTML='';
   const imageKeys = ['detailImg1','detailImg2','detailImg3','detailImg4']; 
   imageKeys.forEach(key=>{
