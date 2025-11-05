@@ -441,4 +441,26 @@ dbRef.on('value', snap=>{
 });
 </script>
 </body>
+<script>
+// ✅ Copy Function
+function copyText(elementId){
+  const text = document.getElementById(elementId).innerText;
+  if(!navigator.clipboard) {
+    // পুরনো ব্রাউজার fallback
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    textarea.remove();
+  } else {
+    navigator.clipboard.writeText(text);
+  }
+  // ছোট নোটিফিকেশন
+  const btn = document.querySelector(`#${elementId} + .copyBtn`);
+  const originalText = btn.innerText;
+  btn.innerText = 'Copied ✅';
+  setTimeout(()=>{btn.innerText = originalText;},1200);
+}
+</script>
 </html>
