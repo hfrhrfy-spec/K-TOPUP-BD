@@ -6,12 +6,95 @@
 <title>𝐊ᴀ𝐰sᴀʀ</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
-body{min-height:100vh;color:#222;background:linear-gradient(135deg,#e0e0e0 0%,#c9c9c9 100%);animation:fadeBg 12s ease-in-out infinite alternate;}
-@keyframes fadeBg{0%{background:linear-gradient(135deg,#e0e0e0 0%,#c9c9c9 100%);}50%{background:linear-gradient(135deg,#d7d7d7 0%,#bfbfbf 100%);}100%{background:linear-gradient(135deg,#ebebeb 0%,#d0d0d0 100%);}}
-header{background:linear-gradient(90deg,#1e1e1e 0%,#3a3a3a 35%,#d4af37 100%);color:#fff;text-align:center;padding:10px 20px;font-size:1.0em;font-weight:600;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.3);position:sticky;top:10px;z-index:120;letter-spacing:0px;transition:.3s;}
-.shop-name-wrapper{display:flex;justify-content:center;align-items:center;margin:18px 0}
-.shop-name{font-size:1.5em;font-weight:600;padding:20px 40px;border-radius:100px;background:linear-gradient(90deg,#1e1e1e 0%,#3a3a3a 35%,#d4af37 100%);color:#fff;text-shadow:0 2px 5px rgba(0,0,0,0.3);box-shadow:0 10px 30px rgba(255,215,0,0.3);border:2px solid #fff;text-align:center;transition:.3s;animation:glow 3s ease-in-out infinite alternate;}
-@keyframes glow {from { box-shadow:0 0 15px rgba(255,215,0,0.3); }to { box-shadow:0 0 30px rgba(255,215,0,0.6); }}
+body{
+  min-height:100vh;
+  color:#222;
+  background: url('https://i.postimg.cc/6qr1f2zH/public.jpg') no-repeat center center fixed;
+  background-size: cover;
+  animation:none; /* আগের gradient animation বন্ধ */
+}
+
+/* 🌟 Header Frame */
+header{
+  background:linear-gradient(135deg,#7f00ff,#e100ff,#ff6a00);
+  color:#fff;
+  text-align:center;
+  padding:14px 20px;
+  font-size:1.1em;
+  font-weight:700;
+  border-radius:80px;
+  box-shadow:0 6px 25px rgba(127,0,255,0.4);
+  position:sticky;
+  top:12px;
+  z-index:120;
+  letter-spacing:0px;
+  text-transform:uppercase;
+  overflow:hidden;
+  animation:glowPulse 4s ease-in-out infinite;
+}
+header::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:20%;
+  height:100%;
+  background:linear-gradient(120deg,rgba(255,255,255,0.3),rgba(255,255,255,0));
+  transform:skewX(-25deg);
+  animation:headerShine 3.5s infinite;
+}
+@keyframes headerShine{
+  0%{left:-100%;}
+  50%{left:130%;}
+  100%{left:130%;}
+}
+@keyframes glowPulse{
+  0%,100%{box-shadow:0 0 25px rgba(127,0,255,0.5);}
+  50%{box-shadow:0 0 45px rgba(255,106,0,0.6);}
+}
+
+/* 🌟 Shop Name Frame */
+.shop-name-wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:25px 0;
+}
+.shop-name{
+  background:linear-gradient(135deg,#FF6F68,#ee0979);
+  color:#fff;
+  padding:22px 45px;
+  font-size:1.7em;
+  font-weight:700;
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(238,9,121,0.4);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  position:relative;
+  overflow:hidden;
+  animation:shine 4s linear infinite;
+}
+.shop-name::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-75%;
+  width:50%;
+  height:100%;
+  background:linear-gradient(120deg,rgba(255,255,255,0.3),rgba(255,255,255,0));
+  transform:skewX(-25deg);
+  animation:slide 3s infinite;
+}
+@keyframes slide{
+  0%{left:-75%;}
+  50%{left:125%;}
+  100%{left:125%;}
+}
+@keyframes shine{
+  0%,100%{box-shadow:0 0 20px rgba(238,9,121,0.4);}
+  50%{box-shadow:0 0 35px rgba(255,106,0,0.6);}
+}
+
 .container{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;padding:20px;margin-top:8px;}
 .product{background:linear-gradient(145deg,#ffffff,#f1f1f1);border-radius:18px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.1);transition:all .3s ease;cursor:pointer;border:2px solid rgba(0,0,0,0.05);position:relative;}
 .product:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 12px 26px rgba(0,0,0,0.18);background:linear-gradient(145deg,#fefefe,#fafafa);}
@@ -42,7 +125,6 @@ header{background:linear-gradient(90deg,#1e1e1e 0%,#3a3a3a 35%,#d4af37 100%);col
 .phone{display:none;}
 .share-note{font-size:0.82em;color:#666;text-align:center;padding-top:6px}
 
-/* ❤️ Premium Description Frame */
 .product-desc-frame{
   background: linear-gradient(135deg,#7f00ff,#e100ff);
   color:#fff;
@@ -58,12 +140,7 @@ header{background:linear-gradient(90deg,#1e1e1e 0%,#3a3a3a 35%,#d4af37 100%);col
   transition:all .3s ease;
 }
 
-/* ✅ Premium Order Form Frame */
-#orderFormPage{
-  display:none;
-  text-align:center;
-  padding:20px;
-}
+#orderFormPage{display:none;text-align:center;padding:20px;}
 .orderFormFrame{
   background: linear-gradient(135deg,#ff416c,#ff4b2b);
   padding:25px 20px;
@@ -74,24 +151,9 @@ header{background:linear-gradient(90deg,#1e1e1e 0%,#3a3a3a 35%,#d4af37 100%);col
   margin:0 auto;
   animation:fadeIn .5s ease;
 }
-.orderFormFrame h2{
-  margin-bottom:15px;
-  font-size:1.4em;
-  font-weight:600;
-}
-.orderFormFrame p{
-  margin-bottom:15px;
-  font-size:0.95em;
-  font-weight:500;
-}
-.orderFormFrame input{
-  width:90%;
-  padding:10px;
-  margin:10px 0;
-  border-radius:10px;
-  border:none;
-  outline:none;
-}
+.orderFormFrame h2{margin-bottom:15px;font-size:1.4em;font-weight:600;}
+.orderFormFrame p{margin-bottom:15px;font-size:0.95em;font-weight:500;}
+.orderFormFrame input{width:90%;padding:10px;margin:10px 0;border-radius:10px;border:none;outline:none;}
 .orderFormFrame button{
   background:linear-gradient(135deg,#25D366,#128C7E);
   color:#fff;
@@ -103,56 +165,69 @@ header{background:linear-gradient(90deg,#1e1e1e 0%,#3a3a3a 35%,#d4af37 100%);col
   transition:.3s;
 }
 .orderFormFrame button:hover{transform:scale(1.05);}
-.orderFormFrame #orderMsg{
-  margin-top:12px;
-  font-weight:600;
-}
+.orderFormFrame #orderMsg{margin-top:12px;font-weight:600;}
 
-/* ✅ Back Button Style */
+/* 🌈 Premium Back Button Design */
 .backBtn{
   display:inline-block;
-  padding:8px 15px;
+  padding:10px 50px;
   margin-bottom:15px;
-  background:#333;
+  background:linear-gradient(135deg,#6a11cb,#2575fc);
   color:#fff;
-  border-radius:8px;
+  border-radius:20px;
   cursor:pointer;
   font-weight:600;
-  transition:.3s;
+  letter-spacing:0.5px;
+  box-shadow:0 5px 20px rgba(106,17,203,0.4);
+  border:none;
+  transition:all 0.3s ease;
+  position:relative;
+  overflow:hidden;
 }
-.backBtn:hover{background:#555;}
+.backBtn::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-80%;
+  width:50%;
+  height:100%;
+  background:linear-gradient(120deg,rgba(255,255,255,0.4),rgba(255,255,255,0));
+  transform:skewX(-25deg);
+  transition:all .4s ease;
+}
+.backBtn:hover::before{left:120%;}
+.backBtn:hover{
+  transform:translateY(-2px) scale(1.04);
+  box-shadow:0 8px 25px rgba(37,117,252,0.5);
+}
 
-/* Media Queries */
 @media (max-width:880px){.container{grid-template-columns:repeat(2,1fr)}.product img{max-height:180px}.productPageWrapper{flex-direction:column;align-items:center}.orderColumn{width:92%;position:static;top:auto}.imagesColumn{flex-direction:row;gap:12px}.imagesColumn img{max-height:200px}.orderFormFrame{width:95%;padding:20px;}}
 @media (max-width:480px){.container{grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}.product img{max-height:160px}.imagesColumn img{max-height:180px}.bigBtn{padding:12px 18px;font-size:1em}.orderFormFrame input{width:95%;}}
 </style>
 </head>
 <body>
 <header id="mainHeader">WELCOME</header>
-<div class="shop-name-wrapper" id="shopNameWrapper"><div class="shop-name" id="shopNameDiv">Network Problem</div></div>
+<div class="shop-name-wrapper" id="shopNameWrapper">
+  <div class="shop-name" id="shopNameDiv">Network Problem</div>
+</div>
 
-<!-- ✅ Home Page -->
 <div id="home" class="container"></div>
 
-<!-- ✅ Premium Order Form Page -->
 <div id="orderFormPage">
   <div class="orderFormFrame">
-    <div class="backBtn" onclick="goBack('orderFormPage')">⬅ Back</div>
-    <h2>অর্ডার নিশ্চিত করুন</h2>
-    <p>নিচে আপনার বিকাশ/নগদ নাম্বারের শেষ ৪ ডিজিট এবং UID লিখুন</p>
-    <input type="text" id="lastFourDigits" maxlength="4" placeholder="Last 4 Digits" />
-    <input type="text" id="userUID" placeholder="Enter UID" />
-    <button onclick="confirmOrder()">Confirm</button>
+    <div class="backBtn" onclick="goBack('orderFormPage')">⬅ 𝐁𝐀𝐂𝐊</div>
+    <h2>𝐂𝐎𝐍𝐅𝐈𝐑𝐌 𝐎𝐑𝐃𝐄𝐑</h2>
+    <p>নিচে আপনার বিকাশ/নগদ নাম্বারের শেষ ৪ ডিজিট এবং UID লিখুন..!!</p>
+    <input type="text" id="lastFourDigits" maxlength="4" placeholder="𝐋𝐚𝐬𝐭 4 𝐃𝐢𝐠𝐢𝐭𝐬" />
+    <input type="text" id="userUID" placeholder="𝐄𝐧𝐭𝐞𝐫 𝐔𝐈𝐃" />
+    <button onclick="confirmOrder()">𝐂𝐎𝐍𝐅𝐈𝐑𝐌</button>
     <p id="orderMsg"></p>
   </div>
 </div>
 
-<!-- ✅ Product Detail Page -->
 <div id="productPage">
-  <div class="backBtn" onclick="goBack('productPage')">⬅ Back</div>
-  <!-- ❤️ Premium Frame for Description -->
+  <div class="backBtn" onclick="goBack('productPage')">⬅ 𝐁𝐀𝐂𝐊</div>
   <div class="product-desc-frame" id="productDescFrame"></div>
-
   <div class="productPageWrapper">
     <div class="imagesColumn" id="detailImagesColumn"></div>
     <div class="orderColumn" id="orderColumn">
@@ -161,7 +236,7 @@ header{background:linear-gradient(90deg,#1e1e1e 0%,#3a3a3a 35%,#d4af37 100%);col
       <div>নগদ নাম্বার:- 01709353246</div>
       <h2 id="detailName">Product Name</h2>
       <div class="price" id="detailPrice">৳ 0</div>
-      <a id="orderBtn" class="bigBtn" href="#">অর্ডার করুন</a>
+      <a id="orderBtn" class="bigBtn" href="#">𝐎𝐫𝐝𝐞𝐫 𝐍𝐨𝐰</a>
       <div class="share-note">উপরের বাটনে ক্লিক করলে অর্ডার নিশ্চিত পেজে যাবে..!</div>
     </div>
   </div>
@@ -182,7 +257,6 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const dbRef = firebase.database().ref("/");
-
 let whatsappNumber = "8801000000000";
 let shopNameDiv = document.getElementById("shopNameDiv");
 let header = document.getElementById("mainHeader");
@@ -191,7 +265,6 @@ let selectedProduct = null;
 
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function sanitizePhone(p){if(!p)return'';return p.replace(/[^\d+]/g,'').replace(/^\+?88/,'88');}
-
 function renderProducts(products){
   homeContainer.innerHTML='';
   products.forEach((p,i)=>{
@@ -202,71 +275,54 @@ function renderProducts(products){
     homeContainer.appendChild(d);
   });
 }
-
 function showProductPage(i, products){
   selectedProduct = products[i];
   document.getElementById('home').style.display='none';
   document.getElementById('productPage').style.display='block';
   document.getElementById('mainHeader').style.display='none';
   document.getElementById('shopNameWrapper').style.display='none';
-
   document.getElementById('detailName').innerText=selectedProduct.name||'Product';
   document.getElementById('detailPrice').innerText=selectedProduct.price||'৳ 0';
   document.getElementById('productDescFrame').innerText=selectedProduct.desc||'';
-
   const imagesCol = document.getElementById('detailImagesColumn');
-  imagesCol.innerHTML=''; 
+  imagesCol.innerHTML='';
   const imageKeys = ['detailImg1','detailImg2','detailImg3','detailImg4']; 
   imageKeys.forEach(key=>{
     if(selectedProduct[key]){
-      const imgWrap = document.createElement('div');
+      const imgWrap=document.createElement('div');
       imgWrap.className='imgWrap';
-      const imgEl = document.createElement('img');
+      const imgEl=document.createElement('img');
       imgEl.src=selectedProduct[key];
       imgEl.onclick=()=>openFullscreen(selectedProduct[key]);
       imgWrap.appendChild(imgEl);
       imagesCol.appendChild(imgWrap);
     }
   });
-
   document.getElementById('orderBtn').onclick=()=>openOrderForm();
 }
-
 function openFullscreen(src){
-  const div = document.createElement('div');
+  const div=document.createElement('div');
   div.className='fullscreen-view closeable';
   div.onclick=()=>div.remove();
-  const img = document.createElement('img');
+  const img=document.createElement('img');
   img.src=src;
   div.appendChild(img);
   document.body.appendChild(div);
 }
-
 function openOrderForm(){
   document.getElementById('productPage').style.display='none';
   document.getElementById('orderFormPage').style.display='block';
   window.scrollTo({top:0,behavior:'smooth'});
 }
-
 function confirmOrder(){
   const last4=document.getElementById('lastFourDigits').value.trim();
   const uid=document.getElementById('userUID').value.trim();
   const msgEl=document.getElementById('orderMsg');
-  if(last4.length!==4 || isNaN(last4)){msgEl.style.color='red';msgEl.innerText='সঠিকভাবে শেষ ৪ ডিজিট দিন!';return;}
+  if(last4.length!==4||isNaN(last4)){msgEl.style.color='red';msgEl.innerText='সঠিকভাবে শেষ ৪ ডিজিট দিন!';return;}
   if(uid===''){msgEl.style.color='red';msgEl.innerText='UID দিন!';return;}
-
-  const orderData={
-    productName:selectedProduct.name,
-    productPrice:selectedProduct.price,
-    lastFour:last4,
-    UID:uid,
-    time:new Date().toLocaleString()
-  };
-
+  const orderData={productName:selectedProduct.name,productPrice:selectedProduct.price,lastFour:last4,UID:uid,time:new Date().toLocaleString()};
   firebase.database().ref('orders').push(orderData).then(()=>{
-    msgEl.style.color='green';
-    msgEl.innerText='✅ অর্ডার সফলভাবে জমা হয়েছে!';
-    document.getElementById('lastFourDigits').value='';
+    msgEl.style.color='green';msgEl.innerText='✅ অর্ডার সফলভাবে জমা হয়েছে!';document.getElementById('lastFourDigits').value='';
     document.getElementById('userUID').value='';
   }).catch(e=>{
     msgEl.style.color='red';
